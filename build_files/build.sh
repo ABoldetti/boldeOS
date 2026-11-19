@@ -65,6 +65,11 @@ git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git /usr/share/oh-my-zsh
 
 #make zsh default shell
 sed -i 's|^SHELL=.*|SHELL=/usr/bin/zsh|' /etc/default/useradd
+# Rebrand OS name for fastfetch, desktop settings, and bootloader entries
+sed -i 's|^NAME=.*|NAME="BoldOS"|' /usr/lib/os-release
+sed -i 's|^PRETTY_NAME=.*|PRETTY_NAME="BoldOS (Fedora Atomic)"|' /usr/lib/os-release
+sed -i 's|^DEFAULT_HOSTNAME=.*|DEFAULT_HOSTNAME="boldeos"|' /usr/lib/os-release
+sed -i 's|^HOME_URL=.*|HOME_URL="https://github.com/aboldetti/boldeos"|' /usr/lib/os-release
 
 systemctl enable --force plasmalogin
 systemctl set-default graphical.target
