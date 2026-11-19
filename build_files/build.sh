@@ -27,6 +27,7 @@ dnf5 install -y \
     toolbox \
     zsh \
     firefox \
+    fastfetch \
 	--setopt=install_weak_deps=False
 
 # Use a COPR Example:
