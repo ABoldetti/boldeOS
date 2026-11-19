@@ -28,6 +28,15 @@ dnf5 install -y \
     zsh \
     firefox \
     fastfetch \
+    plasma-workspace \
+    kf6-kirigami \
+    kf6-krunner \
+    kf6-kcmutils \
+    kf6-qqc2-desktop-style \
+    qt6-qt5compat \
+    qt6-qtdeclarative \
+    breeze-gtk \
+    plasma-breeze \
 	--setopt=install_weak_deps=False
 
 # Use a COPR Example:
