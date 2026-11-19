@@ -37,7 +37,7 @@ dnf5 install -y \
     qt6-qtdeclarative \
     breeze-gtk \
     plasma-breeze \
-    power-profiles-daemon
+    power-profiles-daemon \
 	--setopt=install_weak_deps=False
 
 # Use a COPR Example:
