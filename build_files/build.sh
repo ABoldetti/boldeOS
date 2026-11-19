@@ -12,16 +12,53 @@ cp -avf "/ctx/system_files"/. /
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
-# this installs a package from fedora repos
-dnf5 install -y tmux
+
+dnf5 install -y \
+	plasma-desktop \
+	plasma-login-manager \
+	kitty \
+	dolphin \
+	plasma-nm \
+	plasma-pa \
+    okular \
+    vlc \
+    flatpak \
+    git \
+    toolbox \
+    zsh \
+	--setopt=install_weak_deps=False
 
 # Use a COPR Example:
-#
-# dnf5 -y copr enable ublue-os/staging
-# dnf5 -y install package
-# Disable COPRs so they don't end up enabled on the final image:
-# dnf5 -y copr disable ublue-os/staging
+rpm --import https://packages.microsoft.com/keys/microsoft.asc
 
-#### Example for enabling a System Unit File
+# Add the VS Code repository
+cat << 'EOF' > /etc/yum.repos.d/vscode.repo
+[code]
+name=Visual Studio Code
+baseurl=https://packages.microsoft.com/yumrepos/vscode
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.microsoft.com/keys/microsoft.asc
+EOF
 
-systemctl enable podman.socket
+dnf5 install -y code
+
+rm -f /etc/yum.repos.d/vscode.repo
+
+#flatpak setup
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+
+#oh my zsh
+git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git /usr/share/oh-my-zsh
+
+#make zsh default shell
+sed -i 's|^SHELL=.*|SHELL=/usr/bin/zsh|' /etc/default/useradd
+
+systemctl enable --force plasmalogin
+systemctl set-default graphical.target
+    
+
+dnf5 clean all
+rm -rf /tmp/* /var/*
+mkdir -p /var/tmp && chmod 1777 /var/tmp
