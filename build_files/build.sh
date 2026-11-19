@@ -61,5 +61,3 @@ systemctl set-default graphical.target
     
 
 dnf5 clean all
-rm -rf /tmp/* /var/*
-mkdir -p /var/tmp && chmod 1777 /var/tmp
