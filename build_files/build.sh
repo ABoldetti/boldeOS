@@ -26,6 +26,7 @@ dnf5 install -y \
     git \
     toolbox \
     zsh \
+    firefox \
 	--setopt=install_weak_deps=False
 
 # Use a COPR Example:
