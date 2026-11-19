@@ -37,6 +37,7 @@ dnf5 install -y \
     qt6-qtdeclarative \
     breeze-gtk \
     plasma-breeze \
+    power-profiles-daemon
 	--setopt=install_weak_deps=False
 
 # Use a COPR Example:
@@ -73,6 +74,6 @@ sed -i 's|^HOME_URL=.*|HOME_URL="https://github.com/aboldetti/boldeos"|' /usr/li
 
 systemctl enable --force plasmalogin
 systemctl set-default graphical.target
-    
+systemctl enable power-profiles-daemon.service    
 
 dnf5 clean all
