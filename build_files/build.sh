@@ -74,6 +74,8 @@ sed -i 's|^HOME_URL=.*|HOME_URL="https://github.com/aboldetti/boldeos"|' /usr/li
 
 systemctl enable --force plasmalogin
 systemctl set-default graphical.target
-systemctl enable power-profiles-daemon.service    
+systemctl enable power-profiles-daemon.service 
+systemctl enable bootc-fetch-apply-updates.timer
+   
 
 dnf5 clean all
