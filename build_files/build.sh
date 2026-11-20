@@ -39,6 +39,16 @@ dnf5 install -y \
     plasma-breeze \
     power-profiles-daemon \
     glibc-langpack-en \
+	pciutils \
+    pipewire \
+    pipewire-alsa \
+    pipewire-pulseaudio \
+    pipewire-utils \
+    wireplumber \
+    alsa-ucm \
+    alsa-utils \
+    alsa-sof-firmware \
+    linux-firmware \
 	--setopt=install_weak_deps=False
 
 # Use a COPR Example:
@@ -77,6 +87,7 @@ systemctl enable --force plasmalogin
 systemctl set-default graphical.target
 systemctl enable power-profiles-daemon.service 
 systemctl enable bootc-fetch-apply-updates.timer
+systemctl --global enable pipewire.socket pipewire-pulse.socket wireplumber.service
    
 
 dnf5 clean all
