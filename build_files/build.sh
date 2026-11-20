@@ -51,6 +51,7 @@ dnf5 install -y \
     linux-firmware \
 	plasma-milou \
     kf6-krunner \
+	kde-connect \
 	--setopt=install_weak_deps=False
 
 # Use a COPR Example:
