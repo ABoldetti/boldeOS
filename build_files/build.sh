@@ -49,6 +49,8 @@ dnf5 install -y \
     alsa-utils \
     alsa-sof-firmware \
     linux-firmware \
+	plasma-milou \
+    kf6-krunner \
 	--setopt=install_weak_deps=False
 
 # Use a COPR Example:
