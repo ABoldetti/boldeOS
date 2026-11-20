@@ -38,6 +38,7 @@ dnf5 install -y \
     breeze-gtk \
     plasma-breeze \
     power-profiles-daemon \
+    glibc-langpack-en \
 	--setopt=install_weak_deps=False
 
 # Use a COPR Example:
