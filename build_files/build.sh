@@ -52,6 +52,7 @@ dnf5 install -y \
 	plasma-milou \
     kf6-krunner \
 	kde-connect \
+	upower \
 	--setopt=install_weak_deps=False
 
 # Use a COPR Example:
