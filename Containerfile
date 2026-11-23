@@ -6,7 +6,7 @@ COPY system_files /system_files
 # 2. Your minimal fedora-bootc base
 FROM quay.io/fedora/fedora-bootc:latest
 
-
+COPY --from=ghcr.io/ublue-os/brew:latest /system_files /
 
 ### MODIFICATIONS
 ## make modifications desired in your image and install packages by modifying the build.sh script
